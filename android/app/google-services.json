@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "963329657026",
+    "project_id": "football-trivia-60f06",
+    "storage_bucket": "football-trivia-60f06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963329657026:android:2f4ea4e2e433a96376d35b",
+        "android_client_info": {
+          "package_name": "com.football_trivia.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963329657026-onj4cdgldsiqa79m47b2uu2fcuaa7ckd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.football_trivia.android",
+            "certificate_hash": "90232ce7be7ea9d5fba125d7bc8c188e9fc40a25"
+          }
+        },
+        {
+          "client_id": "963329657026-bq6i4thl2u4pvmnqs1gg296fagtc93hs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjI5JT12NoWEK3YSWiBc8_52MrRti0Bwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963329657026-bq6i4thl2u4pvmnqs1gg296fagtc93hs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
