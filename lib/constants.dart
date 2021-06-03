@@ -13,10 +13,11 @@ const String newLineString = "\n";
 // App colors (main)
 const Color colorPrimary = const Color(0xFF258633);
 const Color colorAccent = const Color(0xFF258633);
+const Color colorHighlight = const Color(0xFFFFA100);
 const Color colorDisabled = const Color(0xD1272B37);
 
 // App colors (text)
-const Color colorTextRegular = const Color(0xFF1E263C);
+const Color colorTextRegular = const Color(0xFF272B37);
 const Color colorTextSecondary = const Color(0xFFB9BAC8);
 const Color colorTextTertiary = const Color(0xFF6B7285);
 const Color colorTextWarning = const Color(0xFFF1775C);
@@ -38,11 +39,32 @@ const Color colorSkipProgress = colorWinningTeamBackground;
 const Color colorOrange = const Color(0xFFF2994A);
 
 // Text styles
-const TextStyle textStyleBottomBar = const TextStyle(
+const TextStyle textStyleBottomBarItem = const TextStyle(
   color: colorDisabled,
   fontSize: 14.0,
   fontFamily: "Product Sans",
   fontWeight: FontWeight.w700,
+);
+
+const TextStyle textStyleSectionTitle = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 18.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
+);
+
+const TextStyle textStyleSectionItemTitle = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 16.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w700,
+);
+
+const TextStyle textStyleSectionItemBody = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 16.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
 );
 
 const TextStyle textStyleAppBar = const TextStyle(
@@ -50,6 +72,20 @@ const TextStyle textStyleAppBar = const TextStyle(
   fontSize: 20.0,
   fontFamily: "Product Sans",
   fontWeight: FontWeight.w600,
+);
+
+const TextStyle textStyleFocused = const TextStyle(
+  color: Colors.black,
+  fontSize: 18.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w700,
+);
+
+const TextStyle textStyleRegular = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 14.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
 );
 
 // Input Decoration

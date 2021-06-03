@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:football_trivia/constants.dart';
 import 'package:football_trivia/ui/home/container/home_container_controller.dart';
@@ -17,25 +16,6 @@ class HomeContainerPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: colorPageBackground,
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          title: GetBuilder<HomeContainerController>(
-            id: "text_app_bar_title",
-            init: HomeContainerController(),
-            builder: (viewController) {
-              return Text(
-                viewController.appBarTitle,
-                style: textStyleAppBar,
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              );
-            },
-          ),
-          brightness: Brightness.light,
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          actions: [],
-        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: null,
         bottomNavigationBar: buildBottomBar(),
@@ -43,9 +23,7 @@ class HomeContainerPage extends StatelessWidget {
           id: 'body',
           init: HomeContainerController(),
           builder: (controller) {
-            return SafeArea(
-              child: controller.body,
-            );
+            return controller.body;
           },
         ),
       ),
@@ -58,7 +36,12 @@ class HomeContainerPage extends StatelessWidget {
       init: HomeContainerController(),
       builder: (HomeContainerController viewController) {
         return Container(
-          margin: const EdgeInsets.all(16.0),
+          margin: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            bottom: 16.0,
+            top: 16.0,
+          ),
           decoration: const BoxDecoration(
             borderRadius: const BorderRadius.all(
               const Radius.circular(34.0),
@@ -75,8 +58,8 @@ class HomeContainerPage extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               showUnselectedLabels: true,
               showSelectedLabels: true,
-              selectedLabelStyle: textStyleBottomBar,
-              unselectedLabelStyle: textStyleBottomBar,
+              selectedLabelStyle: textStyleBottomBarItem,
+              unselectedLabelStyle: textStyleBottomBarItem,
               selectedItemColor: colorAccent,
               unselectedItemColor: colorDisabled,
               items: [

@@ -41,6 +41,13 @@ class Messages extends Translations {
           "leader_board": "LeaderBoard",
           "shop": "Shop",
           "profile": "Profile",
+          "profile_your_rank": "Your Rank",
+          "profile_your_statistics": "Your Statistics",
+          "profile_earned_coins": "Earned Coins",
+          "profile_correct": "Correct",
+          "profile_wrong": "Wrong",
+          "profile_gems": "Gems",
+          "profile_coins": "Coins",
         },
       };
 }
