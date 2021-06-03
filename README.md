@@ -1,4 +1,4 @@
-# Exammer
+# Football Trivia
 
 ## Built With
 ### Framework
