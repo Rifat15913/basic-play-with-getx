@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:football_trivia/constants.dart';
 import 'package:football_trivia/ui/auth/splash/splash_controller.dart';
 import 'package:get/get.dart';
 
@@ -14,40 +13,31 @@ class SplashScreen extends StatelessWidget {
           value: SystemUiOverlayStyle(
             systemNavigationBarColor: Colors.white,
             systemNavigationBarIconBrightness: Brightness.light,
-            statusBarIconBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.light,
             statusBarColor: Colors.transparent,
-            statusBarBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.light,
           ),
           child: Scaffold(
             backgroundColor: Colors.white,
             body: Container(
               padding: const EdgeInsets.all(32.0),
-              child: buildBody(),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage("images/ic_splash_background.png"),
+                ),
+              ),
+              child: Center(
+                child: Image.asset(
+                  "images/ic_splash_logo.png",
+                  fit: BoxFit.fitHeight,
+                  height: 80.0,
+                ),
+              ),
             ),
           ),
         );
       },
-    );
-  }
-
-  Widget buildBody() {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          'splash_title'.tr,
-          style: TextStyle(
-            color: colorPrimary,
-            fontSize: 36.0,
-            fontWeight: FontWeight.w600,
-          ),
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 1,
-        ),
-      ],
     );
   }
 }
