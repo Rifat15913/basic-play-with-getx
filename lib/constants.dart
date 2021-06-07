@@ -18,14 +18,16 @@ const Color colorDisabled = const Color(0xD1272B37);
 
 // App colors (text)
 const Color colorTextRegular = const Color(0xFF272B37);
-const Color colorTextSecondary = const Color(0xFFB9BAC8);
+const Color colorTextSecondary = const Color(0xFF707586);
 const Color colorTextTertiary = const Color(0xFF6B7285);
 const Color colorTextWarning = const Color(0xFFF1775C);
 
 // App colors (others)
-const Color colorInputFieldBackground = const Color(0xFFF9F9F9);
-const Color colorInputFieldBorder = const Color(0xFFEEEEEE);
+const Color colorInputFieldBackground = const Color(0xFFFAFAFA);
+const Color colorInputFieldBorder = const Color(0xFFF3F2F2);
 const Color colorPageBackground = const Color(0xFFF4F5F7);
+const Color colorCloseButtonBackground = const Color(0x12707586);
+
 const Color colorItemInactiveBackground = const Color(0xFFEBF2FE);
 const Color colorItemActiveBackground = const Color(0xFF3580F7);
 const Color colorExamItemInactiveBackground = const Color(0xFFF5F6FC);
@@ -81,6 +83,13 @@ const TextStyle textStyleFocused = const TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+const TextStyle textStyleLarge = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 16.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
+);
+
 const TextStyle textStyleRegular = const TextStyle(
   color: colorTextRegular,
   fontSize: 14.0,
@@ -93,6 +102,13 @@ const TextStyle textStyleSmall = const TextStyle(
   fontSize: 12.0,
   fontFamily: "Product Sans",
   fontWeight: FontWeight.w400,
+);
+
+const TextStyle textStyleHeadline = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 26.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w700,
 );
 
 // Input Decoration
