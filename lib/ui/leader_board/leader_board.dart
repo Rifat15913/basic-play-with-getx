@@ -158,8 +158,10 @@ class LeaderBoardPage extends StatelessWidget {
                 width: 16.0,
                 height: 16.0,
                 decoration: const BoxDecoration(
-                  color: colorAccent,
-                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.contain,
+                    image: AssetImage("images/ic_background_avatar_tag.png"),
+                  ),
                 ),
                 child: Center(
                   child: Text(
