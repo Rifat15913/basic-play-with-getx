@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class ViewProfileController extends GetxController {
+class LeaderBoardController extends GetxController {
   late bool isLoading;
 
   @override

@@ -88,6 +88,13 @@ const TextStyle textStyleRegular = const TextStyle(
   fontWeight: FontWeight.w400,
 );
 
+const TextStyle textStyleSmall = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 12.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
+);
+
 // Input Decoration
 const InputDecoration inputDecorationForm = const InputDecoration(
   contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -137,15 +144,10 @@ const RoundedRectangleBorder shapeCardItemRectangle =
   ),
 );
 
-// Widget
-const Widget centralProgressIndicator = const Center(
-  child: const CircularProgressIndicator(),
-);
-
 // Service
 const SystemUiOverlayStyle systemUiOverlayStyleGlobal =
     const SystemUiOverlayStyle(
-  systemNavigationBarColor: Colors.white,
+  systemNavigationBarColor: colorPageBackground,
   systemNavigationBarIconBrightness: Brightness.dark,
   statusBarIconBrightness: Brightness.dark,
   statusBarColor: Colors.transparent,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:football_trivia/ui/leader_board/leader_board.dart';
 import 'package:football_trivia/ui/profile/view/view_profile.dart';
 import 'package:get/get.dart';
 
@@ -32,9 +33,7 @@ class HomeContainerController extends GetxController {
         break;
 
       case 1:
-        body = Center(
-          child: Text("Page 2"),
-        );
+        body = LeaderBoardPage();
         break;
 
       case 2:
