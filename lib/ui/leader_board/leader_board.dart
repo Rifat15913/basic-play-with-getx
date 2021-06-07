@@ -37,7 +37,7 @@ class LeaderBoardPage extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                          "images/ic_background_profile_user_avatar.png",
+                          "images/ic_background_leader_board.png",
                         ),
                       ),
                     ),
