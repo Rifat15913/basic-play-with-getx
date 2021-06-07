@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../../../constants.dart';
 
 class HomeContentPage extends StatelessWidget {
-  final itemSizeSingle = 40.0;
+  final itemSizeSingle = 35.0;
   final itemSizeDouble = 65.0;
 
   @override
@@ -321,8 +321,10 @@ class HomeContentPage extends StatelessWidget {
                 width: 16.0,
                 height: 16.0,
                 decoration: const BoxDecoration(
-                  color: colorAccent,
-                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.contain,
+                    image: AssetImage("images/ic_background_avatar_tag.png"),
+                  ),
                 ),
                 child: Center(
                   child: Text(
@@ -358,14 +360,16 @@ class HomeContentPage extends StatelessWidget {
                       ),
                       radius: 8.0,
                     ),
-                    Text(
-                      "United Kingdom",
-                      style: textStyleBottomBarItem.copyWith(
-                        fontSize: 12.0,
-                      ),
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.ellipsis,
-                    ).marginOnly(left: 8.0),
+                    Expanded(
+                      child: Text(
+                        "United Kingdom",
+                        style: textStyleBottomBarItem.copyWith(
+                          fontSize: 12.0,
+                        ),
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                      ).marginOnly(left: 8.0),
+                    ),
                   ],
                 ),
               ],
