@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:football_trivia/ui/home/content/home_content.dart';
 import 'package:football_trivia/ui/leader_board/leader_board.dart';
 import 'package:football_trivia/ui/profile/view/view_profile.dart';
 import 'package:get/get.dart';
@@ -27,9 +28,7 @@ class HomeContainerController extends GetxController {
 
     switch (index) {
       case 0:
-        body = Center(
-          child: Text("Page 1"),
-        );
+        body = HomeContentPage();
         break;
 
       case 1:
