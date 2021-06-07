@@ -12,8 +12,8 @@ class HomeContainerController extends GetxController {
 
   @override
   void onInit() {
-    body = ViewProfilePage();
-    selectedBottomBarIndex = 3;
+    body = HomeContentPage();
+    selectedBottomBarIndex = 0;
 
     super.onInit();
   }
