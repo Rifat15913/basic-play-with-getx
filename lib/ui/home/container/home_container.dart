@@ -40,7 +40,7 @@ class HomeContainerPage extends StatelessWidget {
             left: 16.0,
             right: 16.0,
             bottom: 16.0,
-            top: 16.0,
+            top: 8.0,
           ),
           decoration: const BoxDecoration(
             borderRadius: const BorderRadius.all(
