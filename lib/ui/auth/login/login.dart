@@ -5,6 +5,7 @@ import 'package:football_trivia/base/widget/custom_filled_button.dart';
 import 'package:football_trivia/base/widget/custom_text_form_field.dart';
 import 'package:football_trivia/constants.dart';
 import 'package:football_trivia/ui/auth/login/login_controller.dart';
+import 'package:football_trivia/ui/auth/registration/registration.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
@@ -120,7 +121,9 @@ class LoginPage extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   recognizer: TapGestureRecognizer()
-                                    ..onTap = () {},
+                                    ..onTap = () {
+                                      Get.to(() => RegistrationPage());
+                                    },
                                   text: "Sign Up",
                                   style: textStyleRegular.copyWith(
                                     fontWeight: FontWeight.w700,
