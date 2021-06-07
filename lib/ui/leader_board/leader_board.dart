@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../../../constants.dart';
 
 class LeaderBoardPage extends StatelessWidget {
-  final itemSizeSingle = 40.0;
+  final itemSizeSingle = 35.0;
   final itemSizeDouble = 65.0;
 
   @override
@@ -197,14 +197,16 @@ class LeaderBoardPage extends StatelessWidget {
                       ),
                       radius: 8.0,
                     ),
-                    Text(
-                      "United Kingdom",
-                      style: textStyleBottomBarItem.copyWith(
-                        fontSize: 12.0,
-                      ),
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.ellipsis,
-                    ).marginOnly(left: 8.0),
+                    Expanded(
+                      child: Text(
+                        "United Kingdom",
+                        style: textStyleBottomBarItem.copyWith(
+                          fontSize: 12.0,
+                        ),
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                      ).marginOnly(left: 8.0),
+                    ),
                   ],
                 ),
               ],
