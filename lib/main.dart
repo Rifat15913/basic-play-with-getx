@@ -5,12 +5,10 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/essential/app_configuration.dart';
 import 'package:football_trivia/essential/translations.dart';
 import 'package:football_trivia/ui/auth/splash/splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,22 +21,15 @@ void main() async {
 
   runZonedGuarded<Future<void>>(
     () async {
-      AppConfiguration appConfig = AppConfiguration();
       await GetStorage.init();
 
-      runApp(
-        MyApp(appConfig: appConfig),
-      );
+      runApp(MyApp());
     },
     FirebaseCrashlytics.instance.recordError,
   );
 }
 
 class MyApp extends StatelessWidget {
-  final AppConfiguration appConfig;
-
-  MyApp({required this.appConfig});
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -52,25 +43,18 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return ChangeNotifierProvider<AppConfiguration>(
-      create: (BuildContext context) => appConfig,
-      child: Consumer<AppConfiguration>(
-        builder: (context, model, child) {
-          return GetMaterialApp(
-            translations: Messages(),
-            locale: Locale('en'),
-            fallbackLocale: Locale('en'),
-            theme: ThemeData(
-              backgroundColor: Colors.white,
-              primaryColor: colorPrimary,
-              accentColor: colorAccent,
-              fontFamily: 'Product Sans',
-            ),
-            debugShowCheckedModeBanner: true,
-            home: SplashScreen(),
-          );
-        },
+    return GetMaterialApp(
+      translations: Messages(),
+      locale: Locale('en'),
+      fallbackLocale: Locale('en'),
+      theme: ThemeData(
+        backgroundColor: Colors.white,
+        primaryColor: colorPrimary,
+        accentColor: colorAccent,
+        fontFamily: 'Product Sans',
       ),
+      debugShowCheckedModeBanner: true,
+      home: SplashScreen(),
     );
   }
 }
