@@ -15,12 +15,14 @@ const Color colorPrimary = const Color(0xFF258633);
 const Color colorAccent = const Color(0xFF258633);
 const Color colorHighlight = const Color(0xFFFFA100);
 const Color colorDisabled = const Color(0xD1272B37);
+const Color colorGem = const Color(0xFF1388C9);
+const Color colorCoin = const Color(0xFFFAB43D);
 
 // App colors (text)
 const Color colorTextRegular = const Color(0xFF272B37);
 const Color colorTextSecondary = const Color(0xFF707586);
 const Color colorTextTertiary = const Color(0xFF6B7285);
-const Color colorTextWarning = const Color(0xFFF1775C);
+const Color colorTextWarning = const Color(0xFFFF5E00);
 
 // App colors (others)
 const Color colorInputFieldBackground = const Color(0xFFFAFAFA);
