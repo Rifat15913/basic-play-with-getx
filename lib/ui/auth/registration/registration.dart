@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:football_trivia/base/widget/custom_drop_down_button.dart';
 import 'package:football_trivia/base/widget/custom_filled_button.dart';
 import 'package:football_trivia/base/widget/custom_text_form_field.dart';
 import 'package:football_trivia/constants.dart';
@@ -141,11 +142,10 @@ class RegistrationPage extends StatelessWidget {
                       hint: "Full Name",
                       iconPath: "images/ic_user.png",
                     ),
-                    CustomTextFormField(
-                      formController: viewController.countryController,
-                      inputType: TextInputType.streetAddress,
+                    CustomDropDownButton(
+                      items: ["Bangladesh", "Estonia", "Italy", "Germany"],
+                      prefixIconPath: "images/ic_country.png",
                       hint: "Country",
-                      iconPath: "images/ic_country.png",
                     ),
                     CustomTextFormField(
                       formController: viewController.passwordController,

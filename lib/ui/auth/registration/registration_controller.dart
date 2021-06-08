@@ -5,14 +5,12 @@ class RegistrationController extends GetxController {
   late TextEditingController nameController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
-  late TextEditingController countryController;
 
   @override
   void onInit() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     nameController = TextEditingController();
-    countryController = TextEditingController();
     super.onInit();
   }
 
@@ -21,7 +19,6 @@ class RegistrationController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
     nameController.dispose();
-    countryController.dispose();
     super.onClose();
   }
 }
