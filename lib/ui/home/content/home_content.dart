@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:football_trivia/base/widget/central_progress_indicator.dart';
 import 'package:football_trivia/constants.dart';
 import 'package:football_trivia/ui/home/content/home_content_controller.dart';
+import 'package:football_trivia/ui/quiz/view/quiz.dart';
 import 'package:get/get.dart';
 
 import '../../../constants.dart';
@@ -87,24 +88,29 @@ class HomeContentPage extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             maxLines: 3,
           ).marginOnly(top: 6.0, bottom: 16.0),
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 12.0,
-            ),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(12.0),
+          GestureDetector(
+            onTap: () {
+              Get.to(() => ViewQuizPage());
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 12.0,
               ),
-            ),
-            child: Text(
-              "Play Now",
-              style: textStyleRegular.copyWith(
-                color: colorAccent,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.all(
+                  const Radius.circular(12.0),
+                ),
               ),
-              textAlign: TextAlign.start,
-              overflow: TextOverflow.ellipsis,
+              child: Text(
+                "Play Now",
+                style: textStyleRegular.copyWith(
+                  color: colorAccent,
+                ),
+                textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ),
         ],
