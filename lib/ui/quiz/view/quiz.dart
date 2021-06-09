@@ -6,6 +6,7 @@ import 'package:football_trivia/base/widget/custom_filled_button.dart';
 import 'package:football_trivia/constants.dart';
 import 'package:football_trivia/ui/quiz/view/quiz_controller.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../../constants.dart';
 
@@ -243,7 +244,9 @@ class ViewQuizPage extends StatelessWidget {
         Expanded(
           child: CustomFilledButton(
             title: "Quit Quiz",
-            onTap: () {},
+            onTap: () {
+              Get.back();
+            },
             backgroundColor: Colors.white,
             textColor: colorTextRegular,
             margin: const EdgeInsets.symmetric(
@@ -259,11 +262,12 @@ class ViewQuizPage extends StatelessWidget {
               return CustomFilledButton(
                 title: "Next",
                 onTap: () {
-                  if (viewController.currentQuestionIndex < 20 - 1) {
+                  /*if (viewController.currentQuestionIndex < 20 - 1) {
                     viewController.changeQuestionIndex(
                       viewController.currentQuestionIndex + 1,
                     );
-                  }
+                  }*/
+                  showResultPopUp();
                 },
                 margin: const EdgeInsets.symmetric(
                   horizontal: 20.0,
@@ -429,160 +433,286 @@ class ViewQuizPage extends StatelessWidget {
   void showHintPopUp() {
     Get.defaultDialog(
       title: "",
-      content: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(
-              left: 20.0,
-              right: 20.0,
-              bottom: 16.0,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          "images/ic_gem.png",
-                          height: 32.0,
-                          fit: BoxFit.fitHeight,
-                        ),
-                        SizedBox(width: 16.0),
-                        Text(
-                          "20\n" + 'profile_gems'.tr,
-                          style: textStyleRegular.copyWith(
-                            fontWeight: FontWeight.w700,
+      content: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(
+                left: 20.0,
+                right: 20.0,
+                bottom: 16.0,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            "images/ic_gem.png",
+                            height: 32.0,
+                            fit: BoxFit.fitHeight,
                           ),
-                          textAlign: TextAlign.start,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Image.asset(
-                          "images/ic_coin.png",
-                          height: 32.0,
-                          fit: BoxFit.fitHeight,
-                        ),
-                        SizedBox(width: 16.0),
-                        Text(
-                          "100\n" + 'profile_coins'.tr,
-                          style: textStyleRegular.copyWith(
-                            fontWeight: FontWeight.w700,
+                          SizedBox(width: 16.0),
+                          Text(
+                            "20\n" + "Gems",
+                            style: textStyleRegular.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          textAlign: TextAlign.start,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            "images/ic_coin.png",
+                            height: 32.0,
+                            fit: BoxFit.fitHeight,
+                          ),
+                          SizedBox(width: 16.0),
+                          Text(
+                            "100\n" + "Coins",
+                            style: textStyleRegular.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ).marginOnly(
+                    bottom: 32.0,
+                    left: 20.0,
+                    right: 20.0,
+                  ),
+                  Text(
+                    "Wait",
+                    style: textStyleExtraExtraLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "Skip 2 choices so you can guess easily!",
+                    style: textStyleExtraLarge.copyWith(
+                      color: colorTextSecondary,
+                      fontWeight: FontWeight.w700,
                     ),
-                  ],
-                ).marginOnly(
-                  bottom: 32.0,
-                  left: 20.0,
-                  right: 20.0,
-                ),
-                Text(
-                  "Wait",
-                  style: textStyleExtraExtraLarge,
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  "Skip 2 choices so you can guess easily!",
-                  style: textStyleExtraLarge.copyWith(
-                    color: colorTextSecondary,
-                    fontWeight: FontWeight.w700,
+                    textAlign: TextAlign.center,
+                  ).marginOnly(
+                    bottom: 16.0,
+                    top: 12.0,
                   ),
-                  textAlign: TextAlign.center,
-                ).marginOnly(
-                  bottom: 16.0,
-                  top: 12.0,
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          CustomFilledButton(
-            title: "Watch a video",
-            onTap: () {},
-          ),
-          CustomFilledButton(
-            title: "Use Coins",
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "Use Coins",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                    fontFamily: "Product Sans",
-                    fontWeight: FontWeight.w700,
-                    height: 1.25,
-                  ),
-                ),
-                Image.asset(
-                  "images/ic_coin.png",
-                  fit: BoxFit.fitHeight,
-                  height: 20.0,
-                ).marginOnly(
-                  left: 24.0,
-                  right: 12.0,
-                ),
-                Text(
-                  "4",
-                  style: textStyleFocused.copyWith(
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+            CustomFilledButton(
+              title: "Watch a video",
+              onTap: () {},
             ),
-            backgroundColor: colorCoin,
-            onTap: () {},
-          ),
-          CustomFilledButton(
-            title: "Use Gems",
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "Use Gems",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                    fontFamily: "Product Sans",
-                    fontWeight: FontWeight.w700,
-                    height: 1.25,
+            CustomFilledButton(
+              title: "Use Coins",
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Use Coins",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontFamily: "Product Sans",
+                      fontWeight: FontWeight.w700,
+                      height: 1.25,
+                    ),
                   ),
-                ),
-                Image.asset(
-                  "images/ic_gem.png",
-                  fit: BoxFit.fitHeight,
-                  height: 20.0,
-                ).marginOnly(
-                  left: 24.0,
-                  right: 12.0,
-                ),
-                Text(
-                  "1",
-                  style: textStyleFocused.copyWith(
-                    color: Colors.white,
+                  Image.asset(
+                    "images/ic_coin.png",
+                    fit: BoxFit.fitHeight,
+                    height: 20.0,
+                  ).marginOnly(
+                    left: 24.0,
+                    right: 12.0,
                   ),
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                  Text(
+                    "4",
+                    style: textStyleFocused.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+              backgroundColor: colorCoin,
+              onTap: () {},
             ),
-            backgroundColor: colorGem,
-            onTap: () {},
-          ),
-        ],
+            CustomFilledButton(
+              title: "Use Gems",
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Use Gems",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontFamily: "Product Sans",
+                      fontWeight: FontWeight.w700,
+                      height: 1.25,
+                    ),
+                  ),
+                  Image.asset(
+                    "images/ic_gem.png",
+                    fit: BoxFit.fitHeight,
+                    height: 20.0,
+                  ).marginOnly(
+                    left: 24.0,
+                    right: 12.0,
+                  ),
+                  Text(
+                    "1",
+                    style: textStyleFocused.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+              backgroundColor: colorGem,
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  void showResultPopUp() {
+    Get.defaultDialog(
+      title: "",
+      content: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(
+                left: 20.0,
+                right: 20.0,
+                bottom: 16.0,
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    "You are awesome!",
+                    style: textStyleExtraExtraLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "Congratulations for getting all the answers correct!",
+                    style: textStyleExtraLarge.copyWith(
+                      color: colorTextSecondary,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    textAlign: TextAlign.center,
+                  ).marginOnly(
+                    top: 12.0,
+                  ),
+                  Center(
+                    child: Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        CircularPercentIndicator(
+                          radius: 175.0,
+                          animation: false,
+                          lineWidth: 8.0,
+                          percent: 1.0,
+                          center: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "100%",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 40.0,
+                                  color: colorDisabled,
+                                ),
+                              ),
+                              Text(
+                                "20 of 20",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16.0,
+                                  color: colorDisabled.withOpacity(0.6),
+                                ),
+                              ),
+                            ],
+                          ),
+                          circularStrokeCap: CircularStrokeCap.round,
+                          backgroundColor: colorAccent,
+                          progressColor: colorAccent,
+                        ).marginOnly(top: 18.0),
+                        Image.asset(
+                          "images/ic_done_circle.png",
+                          fit: BoxFit.fitHeight,
+                          height: 48.0,
+                        ),
+                      ],
+                    ),
+                  ).marginSymmetric(vertical: 20.0),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: buildStatisticsItem(
+                          "Correct",
+                          "10",
+                        ),
+                      ),
+                      SizedBox(width: 8.0),
+                      Expanded(
+                        child: buildStatisticsItem(
+                          "Wrong",
+                          "0",
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            CustomFilledButton(
+              title: "Share it",
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Column buildStatisticsItem(String title, String subtitle) {
+    return Column(
+      children: [
+        Text(
+          subtitle,
+          style: textStyleSectionItemBody,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+        ).marginOnly(bottom: 4.0),
+        Text(
+          title,
+          style: textStyleSectionItemTitle,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ],
     );
   }
 }
