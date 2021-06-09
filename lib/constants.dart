@@ -85,6 +85,20 @@ const TextStyle textStyleFocused = const TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+const TextStyle textStyleExtraExtraLarge = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 20.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
+);
+
+const TextStyle textStyleExtraLarge = const TextStyle(
+  color: colorTextRegular,
+  fontSize: 18.0,
+  fontFamily: "Product Sans",
+  fontWeight: FontWeight.w400,
+);
+
 const TextStyle textStyleLarge = const TextStyle(
   color: colorTextRegular,
   fontSize: 16.0,
