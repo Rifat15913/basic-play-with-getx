@@ -158,37 +158,42 @@ class ViewQuizPage extends StatelessWidget {
                   width: double.maxFinite,
                 ),
               ).marginOnly(bottom: 16.0),
-              Container(
-                margin: const EdgeInsets.only(bottom: 12.0),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 16.0,
-                ),
-                decoration: BoxDecoration(
-                  color: colorTextWarning.withOpacity(0.17),
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(15.0),
+              GestureDetector(
+                onTap: () {
+                  showHintPopUp();
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 12.0),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 16.0,
                   ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.info_outlined,
-                      color: colorTextWarning,
-                      size: 16.0,
-                    ).marginOnly(right: 8.0),
-                    Text(
-                      "Hint",
-                      style: textStyleRegular.copyWith(
-                        color: colorTextWarning,
-                      ),
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
+                  decoration: BoxDecoration(
+                    color: colorTextWarning.withOpacity(0.17),
+                    borderRadius: const BorderRadius.all(
+                      const Radius.circular(15.0),
                     ),
-                  ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.info_outlined,
+                        color: colorTextWarning,
+                        size: 16.0,
+                      ).marginOnly(right: 8.0),
+                      Text(
+                        "Hint",
+                        style: textStyleRegular.copyWith(
+                          color: colorTextWarning,
+                        ),
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Text(
@@ -418,6 +423,166 @@ class ViewQuizPage extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  void showHintPopUp() {
+    Get.defaultDialog(
+      title: "",
+      content: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(
+              left: 20.0,
+              right: 20.0,
+              bottom: 16.0,
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                          "images/ic_gem.png",
+                          height: 32.0,
+                          fit: BoxFit.fitHeight,
+                        ),
+                        SizedBox(width: 16.0),
+                        Text(
+                          "20\n" + 'profile_gems'.tr,
+                          style: textStyleRegular.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.start,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "images/ic_coin.png",
+                          height: 32.0,
+                          fit: BoxFit.fitHeight,
+                        ),
+                        SizedBox(width: 16.0),
+                        Text(
+                          "100\n" + 'profile_coins'.tr,
+                          style: textStyleRegular.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.start,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ],
+                ).marginOnly(
+                  bottom: 32.0,
+                  left: 20.0,
+                  right: 20.0,
+                ),
+                Text(
+                  "Wait",
+                  style: textStyleExtraExtraLarge,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "Skip 2 choices so you can guess easily!",
+                  style: textStyleExtraLarge.copyWith(
+                    color: colorTextSecondary,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  textAlign: TextAlign.center,
+                ).marginOnly(
+                  bottom: 16.0,
+                  top: 12.0,
+                ),
+              ],
+            ),
+          ),
+          CustomFilledButton(
+            title: "Watch a video",
+            onTap: () {},
+          ),
+          CustomFilledButton(
+            title: "Use Coins",
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Use Coins",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                    fontFamily: "Product Sans",
+                    fontWeight: FontWeight.w700,
+                    height: 1.25,
+                  ),
+                ),
+                Image.asset(
+                  "images/ic_coin.png",
+                  fit: BoxFit.fitHeight,
+                  height: 20.0,
+                ).marginOnly(
+                  left: 24.0,
+                  right: 12.0,
+                ),
+                Text(
+                  "4",
+                  style: textStyleFocused.copyWith(
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+            backgroundColor: colorCoin,
+            onTap: () {},
+          ),
+          CustomFilledButton(
+            title: "Use Gems",
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Use Gems",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                    fontFamily: "Product Sans",
+                    fontWeight: FontWeight.w700,
+                    height: 1.25,
+                  ),
+                ),
+                Image.asset(
+                  "images/ic_gem.png",
+                  fit: BoxFit.fitHeight,
+                  height: 20.0,
+                ).marginOnly(
+                  left: 24.0,
+                  right: 12.0,
+                ),
+                Text(
+                  "1",
+                  style: textStyleFocused.copyWith(
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+            backgroundColor: colorGem,
+            onTap: () {},
+          ),
+        ],
+      ),
     );
   }
 }
