@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:football_trivia/ui/auth/login/login.dart';
 import 'package:football_trivia/ui/home/content/home_content.dart';
 import 'package:football_trivia/ui/leader_board/leader_board.dart';
 import 'package:football_trivia/ui/profile/view/view_profile.dart';
+import 'package:football_trivia/ui/shop/view/shop.dart';
 import 'package:get/get.dart';
 
 import '../../profile/view/view_profile.dart';
@@ -37,14 +37,7 @@ class HomeContainerController extends GetxController {
         break;
 
       case 2:
-        body = Center(
-          child: TextButton(
-            onPressed: () {
-              Get.to(() => LoginPage());
-            },
-            child: Text("Visit Login"),
-          ),
-        );
+        body = ShopPage();
         break;
 
       case 3:
