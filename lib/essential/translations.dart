@@ -38,7 +38,7 @@ class Messages extends Translations {
           "duplicate_email": "The account already exists for that email.",
           "splash_title": "Football Trivia",
           "home": "Home",
-          "leader_board": "LeaderBoard",
+          "leader_board": "Leaderboard",
           "shop": "Shop",
           "profile": "Profile",
           "profile_your_rank": "Your Rank",
