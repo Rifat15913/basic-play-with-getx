@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomFilledButton extends StatefulWidget {
   final String title;
 
+  final Widget? child;
   final Color backgroundColor, textColor;
   final GestureTapCallback onTap;
   final EdgeInsets margin;
@@ -11,6 +12,7 @@ class CustomFilledButton extends StatefulWidget {
     Key? key,
     required this.title,
     required this.onTap,
+    this.child,
     this.textColor = Colors.white,
     this.backgroundColor = const Color(0xFF258633),
     this.margin = const EdgeInsets.only(
@@ -41,16 +43,17 @@ class _CustomFilledButtonState extends State<CustomFilledButton> {
           backgroundColor: widget.backgroundColor,
         ),
         onPressed: widget.onTap,
-        child: Text(
-          widget.title,
-          style: TextStyle(
-            color: widget.textColor,
-            fontSize: 16.0,
-            fontFamily: "Product Sans",
-            fontWeight: FontWeight.w700,
-            height: 1.25,
-          ),
-        ),
+        child: widget.child ??
+            Text(
+              widget.title,
+              style: TextStyle(
+                color: widget.textColor,
+                fontSize: 16.0,
+                fontFamily: "Product Sans",
+                fontWeight: FontWeight.w700,
+                height: 1.25,
+              ),
+            ),
       ),
     );
   }
