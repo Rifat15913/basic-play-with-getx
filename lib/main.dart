@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         accentColor: colorAccent,
         fontFamily: 'Product Sans',
       ),
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
