@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:demo_app/ui/home/container/home_container.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -13,8 +12,6 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
-
     Timer(
       Duration(seconds: 2),
       goToNextPage,
@@ -24,7 +21,6 @@ class SplashController extends GetxController {
 
   @override
   void onClose() {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     super.onClose();
   }
 }

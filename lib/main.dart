@@ -1,6 +1,7 @@
 import 'package:demo_app/constants.dart';
 import 'package:demo_app/essential/translations.dart';
 import 'package:demo_app/ui/auth/splash/splash.dart';
+import 'package:demo_app/ui/auth/splash/splash_binding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
+      initialBinding: SplashBinding(),
     );
   }
 }
