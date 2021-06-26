@@ -1,10 +1,6 @@
-import 'dart:async';
-
 import 'package:demo_app/constants.dart';
 import 'package:demo_app/essential/translations.dart';
 import 'package:demo_app/ui/auth/splash/splash.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,20 +9,8 @@ import 'package:get_storage/get_storage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp();
-  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-
-  // Pass all uncaught errors from the framework to Crashlytics.
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-
-  runZonedGuarded<Future<void>>(
-    () async {
-      await GetStorage.init();
-
-      runApp(MyApp());
-    },
-    FirebaseCrashlytics.instance.recordError,
-  );
+  await GetStorage.init();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
