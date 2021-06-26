@@ -1,4 +1,4 @@
-# Football Trivia
+# Demo App
 
 ## Built With
 ### Framework
