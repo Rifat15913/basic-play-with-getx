@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:demo_app/ui/home/container/home_container.dart';
 import 'package:flutter/services.dart';
-import 'package:football_trivia/ui/home/container/home_container.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {

@@ -1,4 +1,4 @@
-import 'package:football_trivia/constants.dart';
+import 'package:demo_app/constants.dart';
 import 'package:get/get.dart';
 
 class Messages extends Translations {

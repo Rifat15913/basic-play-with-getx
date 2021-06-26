@@ -1,4 +1,4 @@
-import 'package:football_trivia/data/remote/model/survey/training_category/training_category.dart';
+import 'package:demo_app/data/remote/model/survey/training_category/training_category.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'training_category_list.g.dart';

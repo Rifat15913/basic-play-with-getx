@@ -1,4 +1,4 @@
-import 'package:football_trivia/constants.dart';
+import 'package:demo_app/constants.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'training_category.g.dart';

@@ -1,6 +1,6 @@
+import 'package:demo_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:football_trivia/constants.dart';
 
 Padding buildFilledButton({
   VoidCallback? onPressCallback,

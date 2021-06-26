@@ -1,9 +1,9 @@
+import 'package:demo_app/base/widget/central_progress_indicator.dart';
+import 'package:demo_app/constants.dart';
+import 'package:demo_app/ui/leader_board/leader_board_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:football_trivia/base/widget/central_progress_indicator.dart';
-import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/ui/leader_board/leader_board_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../constants.dart';

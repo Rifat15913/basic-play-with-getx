@@ -1,8 +1,8 @@
 import 'dart:collection';
 
-import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/data/remote/model/survey/training_category_list/training_category_list.dart';
-import 'package:football_trivia/data/remote/response/base_response.dart';
+import 'package:demo_app/constants.dart';
+import 'package:demo_app/data/remote/model/survey/training_category_list/training_category_list.dart';
+import 'package:demo_app/data/remote/response/base_response.dart';
 
 class GetSurveyDataResponse extends BaseResponse {
   late TrainingCategoryList trainingCategoryList;

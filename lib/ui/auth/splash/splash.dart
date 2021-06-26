@@ -1,6 +1,6 @@
+import 'package:demo_app/ui/auth/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:football_trivia/ui/auth/splash/splash_controller.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatelessWidget {

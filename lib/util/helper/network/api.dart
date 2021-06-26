@@ -1,11 +1,11 @@
 import 'dart:collection';
 import 'dart:io';
 
+import 'package:demo_app/base/exception/app_exception.dart';
+import 'package:demo_app/constants.dart';
+import 'package:demo_app/util/helper/text.dart';
+import 'package:demo_app/util/lib/preference.dart';
 import 'package:dio/dio.dart';
-import 'package:football_trivia/base/exception/app_exception.dart';
-import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/util/helper/text.dart';
-import 'package:football_trivia/util/lib/preference.dart';
 
 class ApiUtil {
   static Dio? client;

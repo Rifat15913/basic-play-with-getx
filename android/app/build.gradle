@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.football_trivia.android"
+        applicationId "com.demo.android"
 
         minSdkVersion 19
         targetSdkVersion 30

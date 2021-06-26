@@ -1,4 +1,4 @@
-import 'package:football_trivia/constants.dart';
+import 'package:demo_app/constants.dart';
 
 class BaseResponse {
   late bool isSuccessful;

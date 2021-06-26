@@ -1,9 +1,9 @@
+import 'package:demo_app/constants.dart';
+import 'package:demo_app/ui/home/container/home_container_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/ui/home/container/home_container_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../constants.dart';

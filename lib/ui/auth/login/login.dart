@@ -1,11 +1,11 @@
+import 'package:demo_app/base/widget/custom_filled_button.dart';
+import 'package:demo_app/base/widget/custom_text_form_field.dart';
+import 'package:demo_app/constants.dart';
+import 'package:demo_app/ui/auth/login/login_controller.dart';
+import 'package:demo_app/ui/auth/registration/registration.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:football_trivia/base/widget/custom_filled_button.dart';
-import 'package:football_trivia/base/widget/custom_text_form_field.dart';
-import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/ui/auth/login/login_controller.dart';
-import 'package:football_trivia/ui/auth/registration/registration.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {

@@ -1,8 +1,8 @@
+import 'package:demo_app/ui/home/content/home_content.dart';
+import 'package:demo_app/ui/leader_board/leader_board.dart';
+import 'package:demo_app/ui/profile/view/view_profile.dart';
+import 'package:demo_app/ui/shop/view/shop.dart';
 import 'package:flutter/material.dart';
-import 'package:football_trivia/ui/home/content/home_content.dart';
-import 'package:football_trivia/ui/leader_board/leader_board.dart';
-import 'package:football_trivia/ui/profile/view/view_profile.dart';
-import 'package:football_trivia/ui/shop/view/shop.dart';
 import 'package:get/get.dart';
 
 import '../../profile/view/view_profile.dart';

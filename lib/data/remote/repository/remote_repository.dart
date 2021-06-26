@@ -1,9 +1,9 @@
 import 'dart:io';
 
+import 'package:demo_app/constants.dart';
+import 'package:demo_app/util/helper/network/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:football_trivia/constants.dart';
-import 'package:football_trivia/util/helper/network/api.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class RemoteRepository {
