@@ -1,27 +1,25 @@
 import 'package:demo_app/ui/home/content/home_content.dart';
-import 'package:demo_app/ui/leader_board/leader_board.dart';
-import 'package:demo_app/ui/profile/view/view_profile.dart';
 import 'package:demo_app/ui/shop/view/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../profile/view/view_profile.dart';
-
 class HomeContainerController extends GetxController {
   late Widget body;
   late int selectedBottomBarIndex;
+  late Rx<int> cartCount;
 
   @override
   void onInit() {
     body = HomeContentPage();
     selectedBottomBarIndex = 0;
+    cartCount = 0.obs;
 
     super.onInit();
   }
 
   @override
-  void dispose() {
-    super.dispose();
+  void onClose() {
+    super.onClose();
   }
 
   void changeBottomBarIndex(int index) {
@@ -33,24 +31,13 @@ class HomeContainerController extends GetxController {
         break;
 
       case 1:
-        body = LeaderBoardPage();
-        break;
-
-      case 2:
         body = ShopPage();
         break;
 
-      case 3:
-        body = ViewProfilePage();
-        break;
-
       default:
-        body = Center(
-          child: Text("Page 1"),
-        );
         break;
     }
 
-    update(['bottom_bar', 'body', 'text_app_bar_title']);
+    update(['bottom_bar', 'body']);
   }
 }

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../constants.dart';
 
-class HomeContainerPage extends StatelessWidget {
+class HomeContainerPage extends GetView<HomeContainerController> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion(
@@ -16,12 +16,9 @@ class HomeContainerPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: colorPageBackground,
         extendBodyBehindAppBar: true,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: null,
         bottomNavigationBar: buildBottomBar(),
         body: GetBuilder<HomeContainerController>(
           id: 'body',
-          init: HomeContainerController(),
           builder: (controller) {
             return controller.body;
           },
@@ -33,7 +30,6 @@ class HomeContainerPage extends StatelessWidget {
   Widget buildBottomBar() {
     return GetBuilder<HomeContainerController>(
       id: 'bottom_bar',
-      init: HomeContainerController(),
       builder: (HomeContainerController viewController) {
         return Container(
           margin: const EdgeInsets.only(
@@ -71,21 +67,10 @@ class HomeContainerPage extends StatelessWidget {
                 ),
                 getBottomBarItem(
                   viewController,
-                  'images/ic_leader_board.png',
-                  'leader_board'.tr,
-                  1,
-                ),
-                getBottomBarItem(
-                  viewController,
                   'images/ic_shop.png',
-                  'shop'.tr,
-                  2,
-                ),
-                getBottomBarItem(
-                  viewController,
-                  'images/ic_profile.png',
-                  'profile'.tr,
-                  3,
+                  "Cart",
+                  1,
+                  hasBatch: true,
                 ),
               ],
               onTap: (index) {
@@ -102,27 +87,51 @@ class HomeContainerPage extends StatelessWidget {
     HomeContainerController viewController,
     String imagePath,
     String title,
-    int position,
-  ) {
+    int position, {
+    bool hasBatch = false,
+  }) {
     return BottomNavigationBarItem(
       icon: imagePath.trim().isNotEmpty
-          ? Padding(
-              padding: const EdgeInsets.only(
-                bottom: 0.0,
-              ),
-              child: (position == viewController.selectedBottomBarIndex
-                  ? Image.asset(
-                      imagePath,
-                      fit: BoxFit.fitHeight,
-                      height: 32.0,
-                      color: colorAccent,
-                    )
-                  : Image.asset(
-                      imagePath,
-                      fit: BoxFit.fitHeight,
-                      height: 32.0,
-                      color: colorDisabled,
-                    )),
+          ? Stack(
+              alignment: Alignment.topRight,
+              children: [
+                (position == viewController.selectedBottomBarIndex
+                    ? Image.asset(
+                        imagePath,
+                        fit: BoxFit.fitHeight,
+                        height: 32.0,
+                        color: colorAccent,
+                      )
+                    : Image.asset(
+                        imagePath,
+                        fit: BoxFit.fitHeight,
+                        height: 32.0,
+                        color: colorDisabled,
+                      )),
+                if (hasBatch)
+                  Container(
+                    width: 16.0,
+                    height: 16.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: (position == viewController.selectedBottomBarIndex)
+                          ? colorAccent
+                          : colorDisabled,
+                    ),
+                    child: Center(
+                      child: Obx(
+                        () => Text(
+                          "${viewController.cartCount.value}",
+                          style: textStyleSmall.copyWith(
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             )
           : SizedBox(height: 32.0),
       label: title,
