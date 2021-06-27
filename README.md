@@ -10,8 +10,6 @@
     * Swift
     * XML
     * MarkDown
-### Platforms
-    * Firebase
     
 ## Authors
 * [Mohd. Asfaq-E-Azam Rifat](https://github.com/Rifat15913)
