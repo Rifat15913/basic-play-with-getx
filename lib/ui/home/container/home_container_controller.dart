@@ -1,5 +1,5 @@
+import 'package:demo_app/ui/cart/view/cart.dart';
 import 'package:demo_app/ui/home/content/home_content.dart';
-import 'package:demo_app/ui/shop/view/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -35,7 +35,7 @@ class HomeContainerController extends GetxController {
         break;
 
       case 1:
-        body = ShopPage();
+        body = CartPage();
         break;
 
       default:

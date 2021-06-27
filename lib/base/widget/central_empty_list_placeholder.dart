@@ -5,7 +5,7 @@ class CentralEmptyListPlaceholder extends StatelessWidget {
 
   const CentralEmptyListPlaceholder({
     Key? key,
-    this.message = "No item found",
+    this.message = "No item found!",
   }) : super(key: key);
 
   @override

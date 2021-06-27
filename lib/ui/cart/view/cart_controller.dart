@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class ShopPageController extends GetxController {
+class CartPageController extends GetxController {
   late bool isLoading;
 
   @override
