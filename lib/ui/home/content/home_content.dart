@@ -2,7 +2,8 @@ import 'package:demo_app/base/widget/central_progress_indicator.dart';
 import 'package:demo_app/constants.dart';
 import 'package:demo_app/ui/home/container/home_container_controller.dart';
 import 'package:demo_app/ui/home/content/home_content_controller.dart';
-import 'package:demo_app/ui/quiz/view/quiz.dart';
+import 'package:demo_app/ui/leaf/leaf.dart';
+import 'package:demo_app/ui/leaf/leaf_binding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -92,7 +93,10 @@ class HomeContentPage extends GetView<HomeContentController> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => ViewQuizPage());
+                  Get.to(
+                    () => LeafPage(),
+                    binding: LeafBinding(),
+                  );
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(

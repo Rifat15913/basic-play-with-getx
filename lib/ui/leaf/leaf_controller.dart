@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class LeafController extends GetxController {
   late TextEditingController emailController;
   late TextEditingController passwordController;
 
