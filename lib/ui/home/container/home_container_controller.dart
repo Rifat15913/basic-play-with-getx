@@ -22,6 +22,10 @@ class HomeContainerController extends GetxController {
     super.onClose();
   }
 
+  void addToCart() {
+    cartCount.value = (cartCount.value + 1);
+  }
+
   void changeBottomBarIndex(int index) {
     selectedBottomBarIndex = index;
 

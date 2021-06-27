@@ -1,5 +1,6 @@
 import 'package:demo_app/base/widget/central_progress_indicator.dart';
 import 'package:demo_app/constants.dart';
+import 'package:demo_app/ui/home/container/home_container_controller.dart';
 import 'package:demo_app/ui/home/content/home_content_controller.dart';
 import 'package:demo_app/ui/quiz/view/quiz.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ import 'package:get/get.dart';
 
 import '../../../constants.dart';
 
-class HomeContentPage extends StatelessWidget {
+class HomeContentPage extends GetView<HomeContentController> {
   final itemSizeSingle = 35.0;
   final itemSizeDouble = 65.0;
 
@@ -22,27 +23,24 @@ class HomeContentPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: colorPageBackground,
         extendBodyBehindAppBar: true,
-        body: GetBuilder<HomeContentController>(
-          id: "body",
-          init: HomeContentController(),
-          builder: (viewController) {
-            if (viewController.isLoading) {
-              return CentralProgressIndicator();
-            } else {
-              return SafeArea(
-                child: Column(
+        body: SafeArea(
+          child: GetBuilder<HomeContentController>(
+            id: "body",
+            builder: (viewController) {
+              if (viewController.isLoading) {
+                return CentralProgressIndicator();
+              } else {
+                return Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     buildIntroductionSection(),
                     buildBanner(),
-                    buildListHeader(),
-                    buildList(),
                   ],
-                ),
-              );
-            }
-          },
+                );
+              }
+            },
+          ),
         ),
       ),
     );
@@ -50,6 +48,7 @@ class HomeContentPage extends StatelessWidget {
 
   Container buildBanner() {
     return Container(
+      width: double.maxFinite,
       margin: const EdgeInsets.symmetric(
         vertical: 20.0,
         horizontal: 20.0,
@@ -68,7 +67,7 @@ class HomeContentPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Start Quiz",
+            "First Page",
             style: textStyleRegular.copyWith(
               fontSize: 18.0,
               color: Colors.white,
@@ -77,7 +76,7 @@ class HomeContentPage extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           Text(
-            "Play and test your multiple choice answering skills for your favorite sport.",
+            "You can add an item to the cart or visit second page from here",
             style: textStyleRegular.copyWith(
               fontWeight: FontWeight.w700,
               fontSize: 13.0,
@@ -88,30 +87,60 @@ class HomeContentPage extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             maxLines: 3,
           ).marginOnly(top: 6.0, bottom: 16.0),
-          GestureDetector(
-            onTap: () {
-              Get.to(() => ViewQuizPage());
-            },
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 12.0,
-              ),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: const BorderRadius.all(
-                  const Radius.circular(12.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => ViewQuizPage());
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 12.0,
+                  ),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(
+                      const Radius.circular(12.0),
+                    ),
+                  ),
+                  child: Text(
+                    "Visit Child Page",
+                    style: textStyleRegular.copyWith(
+                      color: colorAccent,
+                    ),
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
-              child: Text(
-                "Play Now",
-                style: textStyleRegular.copyWith(
-                  color: colorAccent,
+              GestureDetector(
+                onTap: () {
+                  Get.find<HomeContainerController>().addToCart();
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 12.0,
+                  ),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(
+                      const Radius.circular(12.0),
+                    ),
+                  ),
+                  child: Text(
+                    "Add to Cart",
+                    style: textStyleRegular.copyWith(
+                      color: colorAccent,
+                    ),
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.ellipsis,
               ),
-            ),
+            ],
           ),
         ],
       ),
@@ -148,63 +177,6 @@ class HomeContentPage extends StatelessWidget {
                 style: textStyleFocused.copyWith(
                   color: colorTextRegular,
                 ),
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: 12.0,
-          ),
-          padding: const EdgeInsets.symmetric(
-            vertical: 8.0,
-            horizontal: 12.0,
-          ),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(18.0),
-            ),
-          ),
-          child: Row(
-            children: [
-              Image.asset(
-                "images/ic_gem.png",
-                fit: BoxFit.fitHeight,
-                height: 16.0,
-              ).marginOnly(right: 8.0),
-              Text(
-                "0",
-                style: textStyleRegular,
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
-        Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(18.0),
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(
-            vertical: 8.0,
-            horizontal: 12.0,
-          ),
-          child: Row(
-            children: [
-              Image.asset(
-                "images/ic_coin.png",
-                fit: BoxFit.fitHeight,
-                height: 16.0,
-              ).marginOnly(right: 8.0),
-              Text(
-                "0",
-                style: textStyleRegular,
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.ellipsis,
               ),
